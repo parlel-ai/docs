@@ -1,0 +1,80 @@
+---
+title: Commercial Rules
+description: How Parlel surfaces campaigns and negotiates mandates — at exactly the right moment in a customer conversation.
+---
+
+## Overview
+
+Commercial rules let you define what offers the AI can make and what latitude it has to negotiate — within boundaries you set. A campaign surfaces a fixed offer. A mandate gives the AI negotiating authority up to a defined limit.
+
+Both fire at contextually appropriate moments — triggered by what the customer is discussing or by data from their account. Neither fires indiscriminately.
+
+## How it works
+
+Commercial rules are evaluated on every message. When a rule's trigger condition is met, it becomes active and the AI is given permission and guidance to use it in the response. Every use is logged in the audit trail.
+
+## Rule types
+
+### Campaigns
+
+A campaign is a fixed, time-bound offer. The AI presents it as configured — no variation, no negotiation. Use campaigns for:
+- Promotional discounts with a hard end date
+- Seasonal offers
+- Upsell offers tied to specific product contexts
+
+### Mandates
+
+A mandate gives the AI negotiating authority within defined boundaries. You set the maximum concession — for example, up to 20% discount or one free month — and the AI negotiates within that range based on the conversation context. Use mandates for:
+- Retention conversations where flexibility improves save rates
+- Upgrade incentives where the right offer depends on customer context
+
+## Trigger types
+
+| Trigger type | Description |
+|---|---|
+| Topic-triggered | Fires when the conversation topic matches a defined intent — e.g. "customer is asking about cancellation" |
+| Data-triggered | Fires when customer CRM data meets defined conditions — e.g. customer has been active for more than 12 months |
+
+Rules can combine both trigger types — a retention mandate that fires only when a long-tenure customer raises cancellation, for example.
+
+## Relationships
+
+<CardGroup cols={2}>
+  <Card title="Journeys" icon="map" href="/journeys/journeys">
+    Journey stages define which commercial rules can fire within that stage — ensuring offers only appear in the right context.
+  </Card>
+  <Card title="Transactions" icon="receipt" href="/transactions/transactions">
+    Every commercial rule use is logged — what was offered, what was accepted, what concession was made.
+  </Card>
+  <Card title="Knowledge Base" icon="brain" href="/knowledge/knowledge-base">
+    Topic triggers use semantic matching to identify when a rule should fire — the same mechanism as knowledge retrieval.
+  </Card>
+</CardGroup>
+
+## Configuration
+
+### Creating a campaign
+
+Go to **Campaigns** in the portal → **New campaign**. Define:
+- **Offer** — what is being offered, in plain language the AI can use
+- **Trigger** — topic or data condition that activates the campaign
+- **Active dates** — when the campaign is live
+- **Journey scope** — which journey stages permit this campaign (optional)
+
+### Creating a mandate
+
+Go to **Mandates** in the portal → **New mandate**. Define:
+- **Negotiating authority** — the maximum concession the AI can offer
+- **Guidance** — how the AI should approach the negotiation
+- **Trigger** — topic or data condition that activates the mandate
+- **Budget tracking** — optional total budget limit across all uses
+
+## Reference
+
+| Concept | Description |
+|---|---|
+| Campaign | A fixed, time-bound offer presented as configured |
+| Mandate | Negotiating authority within defined boundaries |
+| Topic trigger | Activates when conversation topic matches a defined intent |
+| Data trigger | Activates when customer CRM data meets defined conditions |
+| Concession | The discount, credit, or benefit offered within a mandate |
