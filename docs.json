@@ -16,7 +16,7 @@
     "eyebrows": "breadcrumbs"
   },
   "contextual": {
-    "options": ["copy", "view", "assistant"]
+    "options": ["copy", "view"]
   },
   "navigation": {
     "global": {
@@ -74,12 +74,7 @@
     "dark": "/logo/dark.svg"
   },
   "navbar": {
-    "links": [],
-    "primary": {
-      "type": "button",
-      "label": "Go to portal",
-      "href": "https://parlel.ai/portal"
-    }
+    "links": []
   },
   "footer": {
     "socials": {
