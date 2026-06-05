@@ -1,0 +1,66 @@
+---
+title: Knowledge Base
+description: How Parlel uses your content to ensure the AI always answers accurately — never from generic training data.
+---
+
+## Overview
+
+The Knowledge Base is how Parlel ensures the AI speaks with your voice and your facts. Every answer the AI gives to a customer is grounded in content you've configured — your products, policies, pricing, and procedures. The AI never falls back to generic training data when answering questions about your company.
+
+This is the foundation everything else builds on. Without a well-configured knowledge base, the AI has nothing authoritative to draw from.
+
+## How it works
+
+When a customer sends a message, Parlel searches your knowledge base for the most relevant content using semantic retrieval — matching meaning, not just keywords. The most relevant content is provided to the AI as the authoritative source for its response.
+
+If the AI can't find relevant content with sufficient confidence, it doesn't guess. Instead it escalates cleanly — either acknowledging the limitation or triggering a [Fallback Flow](/fallbacks/fallback-flows) you've configured.
+
+This means customers always get accurate answers or a clear handoff. Never a confident wrong answer.
+
+## Relationships
+
+<CardGroup cols={2}>
+  <Card title="Fallback Flows" icon="life-ring" href="/fallbacks/fallback-flows">
+    When knowledge retrieval confidence is low, Fallback Flows define what happens next — escalation to an agent, a redirect, or a configured response.
+  </Card>
+  <Card title="Actions" icon="bolt" href="/actions/actions">
+    Knowledge and actions complement each other. Knowledge handles questions; actions handle requests that require changes to customer data.
+  </Card>
+</CardGroup>
+
+## Configuration
+
+### Adding content
+
+Go to **Knowledge** in the portal. Parlel accepts content in the following formats:
+- PDF documents
+- Word documents (.docx)
+- Plain text and Markdown
+- Web URLs (Parlel fetches and indexes the content)
+
+Upload your content and Parlel processes it automatically — splitting it into retrievable chunks, generating embeddings, and indexing it for semantic search.
+
+### Organising content
+
+Content is organised into **knowledge blocks** — logical groupings that help Parlel retrieve the right content for the right question. Good organisation improves retrieval accuracy.
+
+Recommended blocks for most companies:
+- Product catalogue and descriptions
+- Pricing and plans
+- Policies (cancellation, returns, terms)
+- FAQs and support articles
+- Onboarding and how-to guides
+
+### Keeping content current
+
+When your content changes, update or replace the relevant knowledge blocks in the portal. Parlel reprocesses updated content automatically — changes are available to the AI immediately after processing.
+
+## Reference
+
+| Concept | Description |
+|---|---|
+| Knowledge block | A logical grouping of related content |
+| Chunk | A retrievable segment of a knowledge block |
+| Semantic retrieval | Matching by meaning, not exact keywords |
+| Confidence threshold | Minimum confidence score required before the AI uses a retrieved chunk |
+| Escalation | What happens when no chunk meets the confidence threshold |
