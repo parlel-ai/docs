@@ -1,0 +1,92 @@
+---
+title: Actions
+description: How Parlel enables customers to take real actions — verified, logged, and executed against your backend systems — directly from their AI tool.
+---
+
+## Overview
+
+Actions are what separate Parlel from a knowledge-only chatbot. An action is a real transaction — a subscription change, a contact detail update, a support request — executed against your backend systems in real time. Customers don't get told to "visit the portal" or "call support." They complete the task in the AI tool they're already using.
+
+Every action is verified before execution, logged with a full audit trail, and executed only when the customer's authentication tier meets the requirement.
+
+## How it works
+
+Actions are defined as configurable flows in the Parlel portal. Each flow specifies what data to collect, what validation to apply, what API call to make, and how to handle success and error states.
+
+When a customer requests an action in conversation, the AI confirms the request before Parlel executes it. Execution only happens after explicit confirmation. The result is logged as a [Transaction](/transactions/transactions).
+
+## Action classes
+
+Actions have two classes that determine when they can fire:
+
+| Class | When it fires |
+|---|---|
+| General | Any point in an authenticated conversation |
+| Journey | Only within an active Journey stage that explicitly permits it |
+
+General actions are always available once the customer has the required authentication tier. Journey actions are gated by journey configuration — they only become available when the customer has reached the right stage.
+
+## Authentication requirements
+
+Every action has a minimum authentication tier. Parlel enforces this automatically and prompts the customer to verify if they haven't reached the required tier.
+
+| Tier | Description |
+|---|---|
+| Tier 1 | Customer identified — email looked up in CRM |
+| Tier 2 | Customer OTP-verified — identity confirmed via code |
+
+Sensitive actions — anything that changes customer data or has financial implications — should require Tier 2. Read-only lookups can operate at Tier 1.
+
+See [Authentication](/authentication/authentication) for the full tier model.
+
+## Relationships
+
+<CardGroup cols={2}>
+  <Card title="Journeys" icon="map" href="/journeys/journeys">
+    Journey-class actions are governed by journey stage configuration. Journeys define when and in what context these actions become available.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication/authentication">
+    Every action has a minimum authentication tier. Parlel enforces this automatically before execution.
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations/integrations">
+    Actions execute via integrations. Each action flow maps to an API call on a connected integration.
+  </Card>
+  <Card title="Transactions" icon="receipt" href="/transactions/transactions">
+    Every action execution creates a transaction record — a permanent, auditable log of what happened.
+  </Card>
+</CardGroup>
+
+## Configuration
+
+### Creating an action
+
+Go to **Actions** in the portal → **New action**. Define:
+
+1. **Name and description** — how the AI understands what this action does
+2. **Action class** — general or journey
+3. **Required authentication tier** — minimum tier before execution
+4. **Flow** — the sequence of steps: data collection, validation, API call, response handling
+
+### Building a flow
+
+Each action has a flow defined in the visual flow editor. A flow consists of nodes:
+
+- **Input nodes** — collect data from the customer or session
+- **API nodes** — make calls to connected integrations
+- **Condition nodes** — branch based on API responses
+- **Response nodes** — define what the AI communicates back
+
+### Testing an action
+
+Use the test interface in the portal to run an action flow against your integration in a controlled environment before making it available to customers.
+
+## Reference
+
+| Concept | Description |
+|---|---|
+| Action | A configurable flow that executes a transaction against a backend system |
+| Action class | General (always available) or Journey (stage-gated) |
+| Flow | The sequence of nodes that defines how an action executes |
+| Node | A single step in a flow — input, API call, condition, or response |
+| Authentication tier | Minimum identity verification required before execution |
+| Transaction | The audit record created when an action executes |
