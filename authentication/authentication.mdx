@@ -1,0 +1,77 @@
+---
+title: Authentication
+description: How Parlel verifies customer identity progressively — with friction that scales precisely to the sensitivity of what's being asked.
+---
+
+## Overview
+
+Parlel uses a progressive authentication model. Customers start anonymous and gain verified identity as the conversation requires it. Friction scales to sensitivity — a customer asking a general question isn't asked to verify their identity; a customer requesting a subscription change is.
+
+Customers are never over-prompted. They verify when it matters, not as a gate to every interaction.
+
+## How it works
+
+Authentication happens in tiers. Each tier represents a level of verified identity. Actions and journey stages specify the minimum tier required — Parlel enforces this automatically and prompts the customer to verify if they haven't reached the required tier.
+
+The customer's tier persists across the conversation. Once a customer reaches Tier 2, they don't need to verify again for subsequent actions in the same session.
+
+## Authentication tiers
+
+| Tier | Name | Description |
+|---|---|---|
+| Tier 0 | Anonymous | No identification. General knowledge questions only. |
+| Tier 1 | Identified | Customer has provided their email. Parlel has looked them up in your CRM and loaded their account data. |
+| Tier 2 | OTP verified | Customer has verified identity via a one-time code sent to their email. Sensitive actions are now available. |
+| Tier 3 | Strongly verified | Reserved for future use — BankID and equivalent strong verification. |
+
+## The verification flow
+
+When a customer requests an action that requires a higher tier than they currently hold:
+
+<Steps>
+  <Step title="Identification prompt">
+    The AI asks the customer for their email address. Parlel looks the customer up in your CRM and loads their account data into the session.
+  </Step>
+  <Step title="OTP verification">
+    For Tier 2 actions, Parlel sends a six-digit code to the customer's email. The customer provides the code in the conversation.
+  </Step>
+  <Step title="Session upgraded">
+    Once verified, the session tier upgrades. The customer can proceed with the action without re-verifying for the rest of the session.
+  </Step>
+</Steps>
+
+## Relationships
+
+<CardGroup cols={2}>
+  <Card title="Actions" icon="bolt" href="/actions/actions">
+    Every action has a minimum authentication tier. Parlel enforces this before execution.
+  </Card>
+  <Card title="Journeys" icon="map" href="/journeys/journeys">
+    Journey stages can use auth tier as a guardrail — a stage requiring Tier 2 won't become accessible until the customer has verified.
+  </Card>
+  <Card title="Transactions" icon="receipt" href="/transactions/transactions">
+    The authentication tier at the time of execution is recorded in every transaction log.
+  </Card>
+</CardGroup>
+
+## Configuration
+
+### Setting action authentication requirements
+
+Authentication tier requirements are set per action in **Actions** in the portal. As a guideline:
+- Read-only lookups — Tier 1
+- Any change to customer data — Tier 2
+- Financial transactions — Tier 2 minimum
+
+### OTP configuration
+
+OTP codes are sent via your configured email domain. Codes expire after 10 minutes and are invalidated after three failed attempts. Configure your sending domain in **Settings → Email**.
+
+## Reference
+
+| Concept | Description |
+|---|---|
+| Authentication tier | A level of verified customer identity |
+| Session | Persistent context for a customer conversation — stores tier, identity, and customer data |
+| OTP | One-time password — a six-digit code sent to the customer's email |
+| Tier upgrade | When a customer completes verification and their session tier increases |
