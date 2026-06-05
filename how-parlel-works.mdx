@@ -1,0 +1,66 @@
+---
+title: How Parlel Works
+description: An architectural overview of the Parlel platform — the layers, how they connect, and what happens when a customer sends a message.
+---
+
+## The big picture
+
+Parlel sits as an invisible middleware layer between your customers and your backend systems. Customers interact through AI tools they already use — ChatGPT, Claude, Gemini, Copilot, or Parlel's native interface. Parlel handles everything in between: what the AI knows, what it can do, who it's talking to, and what rules apply.
+
+You configure it once. It works across all AI interfaces automatically. Your existing systems stay unchanged.
+
+<Frame>
+  <img src="/images/architecture-overview.png" alt="Parlel architecture overview" />
+</Frame>
+
+## The three capability layers
+
+### Knowledge layer
+Ensures the AI always answers from your content — your products, policies, pricing, and FAQs — never from generic training data. When a customer asks a question, Parlel retrieves the most relevant content from your knowledge base and provides it to the AI as the authoritative source. If the AI isn't confident in an answer, it escalates cleanly rather than guessing.
+
+### Commercial layer
+Gives you control over how conversations flow and what commercial rules apply. Customer journeys let you define structured paths — an upgrade flow, a cancellation retention flow, an onboarding sequence. Campaigns and mandates let you surface offers and negotiate within boundaries you set. Everything fires at the right moment in the right conversation context.
+
+### Authentication layer
+Verifies customer identity progressively. A customer starts anonymous. As the conversation develops and more sensitive actions are requested, Parlel prompts for identification and verification — email lookup, OTP code — with friction that scales precisely to the sensitivity of what's being asked. Customers are never asked to verify more than the situation requires.
+
+## The execution layer
+
+### Action layer
+Translates customer intent into real transactions against your backend systems. Actions are configured flows — each one defines what data to collect, what validation to apply, what API to call, and how to handle errors. Every action execution is logged with a full audit trail.
+
+### Integration layer
+Connects Parlel to your existing systems via pre-built connectors and generic REST integration. HubSpot, Salesforce, Stripe, Zendesk, and custom APIs are all supported. Your systems don't change — Parlel connects to them as they are.
+
+## The configuration portal
+
+Everything above is configured through the Parlel portal at [parlel.ai/portal](https://parlel.ai/portal). Knowledge, actions, journeys, authentication rules, commercial rules, and integrations are all managed in one place. Configure once, deploy across all AI interfaces automatically.
+
+## What happens when a customer sends a message
+
+Every message goes through the same sequence:
+
+<Steps>
+  <Step title="Session resolved">
+    Parlel identifies the session and determines the customer's current authentication tier — anonymous, identified, or verified.
+  </Step>
+  <Step title="Context assembled">
+    Three things happen in parallel: relevant knowledge is retrieved from your knowledge base, customer data is loaded from your CRM, and applicable commercial rules and journey state are evaluated.
+  </Step>
+  <Step title="AI responds">
+    All context is provided to the AI with your configured rules. The AI generates a response grounded in your knowledge, appropriate to the customer's identity, and compliant with your commercial rules.
+  </Step>
+  <Step title="Action executed">
+    If the customer confirmed an action, it is executed against your backend systems, validated, logged, and a transaction record is created.
+  </Step>
+  <Step title="Response delivered">
+    The customer receives the response inside the AI tool they're already using. Nothing changes on their end.
+  </Step>
+</Steps>
+
+## Where to go next
+
+- Understand the [Knowledge Base](/knowledge/knowledge-base) — how your content becomes AI knowledge
+- Understand [Actions](/actions/actions) — how customers take real actions through AI
+- Understand [Journeys](/journeys/journeys) — how you control conversation flow
+- Start configuring with [Getting Started](/getting-started)

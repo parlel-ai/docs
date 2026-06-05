@@ -1,0 +1,55 @@
+---
+title: Getting Started
+description: How to configure Parlel for your company — from first login to first live conversation.
+---
+
+## Overview
+
+Getting Parlel up and running takes four steps: connect your integration, build your knowledge base, configure authentication, and define your actions. Most companies are live within a day.
+
+This guide walks through each step in the right order. Some steps have dependencies — actions require integrations to be configured first, journeys require actions to be defined first.
+
+## Prerequisites
+
+Before you start, you'll need:
+- Access to the Parlel portal at [parlel.ai/portal](https://parlel.ai/portal)
+- Admin credentials for the backend systems you want to connect (CRM, billing, support platform)
+- Your company's knowledge content — product documentation, policies, FAQs — in any common format
+
+## Setup sequence
+
+<Steps>
+  <Step title="Connect your integration">
+    Start in **Settings → Integrations**. Connect your CRM or backend system. Parlel needs at least one integration to look up customer data and execute actions.
+
+    See [Integrations](/integrations/integrations) for connector setup guides.
+  </Step>
+  <Step title="Build your knowledge base">
+    Go to **Knowledge** in the portal. Upload your product documentation, policies, pricing, and FAQs. Parlel processes and indexes your content automatically.
+
+    See [Knowledge Base](/knowledge/knowledge-base) for guidance on structuring content for best results.
+  </Step>
+  <Step title="Configure authentication">
+    Go to **Authentication** in the portal. Define which authentication tier is required for each type of customer interaction.
+
+    See [Authentication](/authentication/authentication) for the tier model and configuration options.
+  </Step>
+  <Step title="Define your actions">
+    Go to **Actions** in the portal. Define what customers can do — update a subscription, change contact details, raise a support request.
+
+    See [Actions](/actions/actions) for flow configuration.
+  </Step>
+  <Step title="Test a conversation">
+    Use the Parlel native chat interface to run through a test conversation as a customer. Verify that knowledge retrieval is accurate, authentication prompts appear at the right moment, and actions execute correctly.
+  </Step>
+  <Step title="Go live">
+    Once testing passes, your AI interface integration — ChatGPT Custom GPT, Claude MCP, or parlel.ai native — is ready for real customers.
+  </Step>
+</Steps>
+
+## What to configure next
+
+Once the basics are running, explore:
+- [Journeys](/journeys/journeys) — structure multi-step customer conversations
+- [Commercial Rules](/commercial/commercial-rules) — add campaigns and mandates
+- [Fallback Flows](/fallbacks/fallback-flows) — define escalation behaviour
