@@ -1,0 +1,88 @@
+---
+title: Security & Privacy
+description: How Parlel handles data security, customer privacy, and compliance — built for companies that trust it with sensitive customer interactions.
+---
+
+## Overview
+
+Parlel is designed for companies that handle sensitive customer data. Security and privacy are built into the architecture — not added afterwards. This page describes how Parlel protects data, what it stores, and what controls companies have.
+
+## Data architecture
+
+### What Parlel stores
+
+| Data | How it's stored |
+|---|---|
+| Company configuration | Encrypted at rest in EU-region database |
+| API credentials | AES-256-GCM encrypted, never exposed in logs or responses |
+| Customer identifiers | SHA-256 hashed — raw PII never stored |
+| Transaction records | Immutable audit log with hashed customer identifiers |
+| Session data | Short-lived, httpOnly cookies — expires at session end |
+| Knowledge content | Chunked and indexed as vector embeddings |
+
+### What Parlel does not store
+
+- Raw customer PII in transaction logs
+- Raw API credentials
+- Conversation content beyond the active session
+
+### Data residency
+
+Parlel's database is hosted in the EU region. All data processing occurs within the EU — supporting GDPR compliance for European companies and their customers.
+
+## Encryption
+
+| Layer | Method |
+|---|---|
+| API credentials at rest | AES-256-GCM |
+| Customer identifiers | SHA-256 hashing |
+| Data in transit | TLS 1.2+ on all connections |
+
+## Authentication security
+
+The OTP verification flow is designed to prevent abuse:
+- Codes expire after 10 minutes
+- Three failed attempts invalidate the code
+- Attempt counts are tracked server-side and cannot be bypassed
+- Codes are hashed before storage — raw codes are never stored
+
+## Session security
+
+Customer sessions use httpOnly cookies. This prevents JavaScript access to session tokens. Sessions expire at conversation end.
+
+## Audit trail
+
+Every action execution, commercial rule use, and authentication event creates an immutable transaction record. Records cannot be edited or deleted.
+
+See [Transactions](/transactions/transactions) for detail on what is logged.
+
+## Compliance
+
+### GDPR
+
+- EU data residency
+- No unnecessary PII storage
+- Hashed customer identifiers in logs
+- Data processing agreement available on request
+
+### EU AI Act
+
+Parlel's core use cases — customer support, account management, information retrieval — are classified as limited-risk AI applications under the EU AI Act. Parlel maintains internal documentation of this classification.
+
+## Relationships
+
+<CardGroup cols={2}>
+  <Card title="Transactions" icon="receipt" href="/transactions/transactions">
+    The transaction audit trail is a core security feature — an immutable record of every action and event.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication/authentication">
+    Progressive authentication ensures sensitive actions require verified identity before execution.
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations/integrations">
+    API credentials for integrations are encrypted at rest and never exposed.
+  </Card>
+</CardGroup>
+
+## Contact
+
+For security questions, data processing agreements, or compliance documentation, contact [security@parlel.ai](mailto:security@parlel.ai).
