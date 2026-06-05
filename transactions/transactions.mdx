@@ -1,0 +1,73 @@
+---
+title: Transactions
+description: How Parlel logs every action and commercial rule use — creating a permanent, auditable record of what happened in every customer conversation.
+---
+
+## Overview
+
+Every action execution and commercial rule use in Parlel creates a transaction record. Transactions are immutable — they can't be edited or deleted. They give you a complete, auditable history of every customer interaction: what was requested, who requested it, what authentication tier was in place, what executed, and what the outcome was.
+
+This matters for compliance, dispute resolution, and operational visibility.
+
+## What gets logged
+
+| Event | Transaction created |
+|---|---|
+| Action executed | Yes — always |
+| Commercial rule fired | Yes — always |
+| Authentication tier upgrade | Yes — always |
+| Fallback flow triggered | Yes — always |
+
+Every transaction includes:
+- Timestamp
+- Customer identifier (hashed — no raw PII stored)
+- Authentication tier at time of event
+- Action or rule involved
+- Input data and output result
+- Success or failure state
+- Reference ID (`#PRL-XXXXXXXX`)
+
+## Customer privacy
+
+Parlel stores customer identifiers as one-way hashes. Raw PII — email addresses, names — is never stored in the transaction log. Customer lookup for transaction history uses the same hashing mechanism.
+
+## Relationships
+
+<CardGroup cols={2}>
+  <Card title="Actions" icon="bolt" href="/actions/actions">
+    Every action execution creates a transaction — the permanent record that the action happened.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication/authentication">
+    The authentication tier at execution time is recorded in every transaction.
+  </Card>
+  <Card title="Commercial Rules" icon="tag" href="/commercial/commercial-rules">
+    Every commercial rule use is logged — what was offered, whether it was accepted, what concession was made.
+  </Card>
+  <Card title="Fallback Flows" icon="life-ring" href="/fallbacks/fallback-flows">
+    Fallback triggers are logged as transactions — giving visibility into where the AI reached the edge of its capability.
+  </Card>
+</CardGroup>
+
+## Viewing transactions
+
+Go to **Transactions** in the portal. Filter by:
+- Date range
+- Action type
+- Authentication tier
+- Success / failure state
+- Customer (via hashed identifier lookup)
+
+Each transaction shows full event detail — inputs, outputs, reference ID, and timestamp.
+
+## Reference ID
+
+Every transaction is assigned a unique reference ID in the format `#PRL-XXXXXXXX`. This ID can be shared with customers as a confirmation reference and used to look up the transaction in the portal.
+
+## Reference
+
+| Concept | Description |
+|---|---|
+| Transaction | An immutable log record of an action execution or commercial rule use |
+| Reference ID | Unique transaction identifier — format `#PRL-XXXXXXXX` |
+| Hashed identifier | Customer identity stored as a one-way hash — no raw PII |
+| Audit trail | The complete log of all transactions for a company |
