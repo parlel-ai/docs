@@ -1,0 +1,84 @@
+---
+title: Fallback Flows
+description: How Parlel handles the edges — what happens when the AI reaches the boundary of its knowledge or capability.
+---
+
+## Overview
+
+Every AI-powered customer interaction has edges — moments where the AI doesn't have the answer, the customer's request falls outside configured capability, or the situation requires a human. Fallback flows define what happens at those edges.
+
+Without configured fallback flows, edge cases are handled inconsistently. With them, every out-of-scope situation has a defined, controlled response — escalation to an agent, a redirect, a specific message, or a background notification to your team.
+
+## How it works
+
+Fallback flows trigger when the AI determines it cannot handle a request within its configured knowledge and actions. When a fallback triggers, Parlel evaluates the configured priority stack and executes the highest-priority applicable flow.
+
+### Trigger conditions
+
+- Knowledge retrieval confidence below threshold
+- Customer request outside the scope of any configured action
+- Journey stage reached without a valid path forward
+- Explicit customer request for human assistance
+
+## Response types
+
+| Response type | Description |
+|---|---|
+| Connect agent | Hands the conversation to a human agent via your configured support platform |
+| Redirect | Sends the customer to a specific URL — a support portal, booking page, or contact form |
+| Message | Delivers a configured message — an acknowledgement, explanation, or instructions |
+
+## Background actions
+
+In addition to the customer-facing response, fallback flows can trigger background actions that run silently:
+
+| Background action | Description |
+|---|---|
+| Send email | Notifies your team that a fallback triggered — with conversation context |
+| Webhook | Calls a configured endpoint — for integration with ticketing or CRM systems |
+| Action | Executes a Parlel action — for example, automatically creating a support ticket |
+
+## Priority stack
+
+You can configure multiple fallback flows. Parlel evaluates them in priority order and executes the first one that matches the trigger condition. This lets you handle different out-of-scope situations differently.
+
+## Relationships
+
+<CardGroup cols={2}>
+  <Card title="Knowledge Base" icon="brain" href="/knowledge/knowledge-base">
+    Low confidence in knowledge retrieval is a primary fallback trigger. Well-structured knowledge reduces fallback frequency.
+  </Card>
+  <Card title="Journeys" icon="map" href="/journeys/journeys">
+    Journey configuration defines what's in scope at each stage. Requests outside that scope trigger fallbacks.
+  </Card>
+  <Card title="Transactions" icon="receipt" href="/transactions/transactions">
+    Every fallback trigger is logged as a transaction — giving visibility into where and why fallbacks fire.
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations/integrations">
+    Connect agent and webhook fallback types require a configured integration.
+  </Card>
+</CardGroup>
+
+## Configuration
+
+### Creating a fallback flow
+
+Go to **Fallback Flows** in the portal → **New fallback flow**. Define:
+- **Trigger condition** — when this flow activates
+- **Priority** — where this flow sits in the priority stack
+- **Customer response** — connect agent, redirect, or message
+- **Background actions** — optional email, webhook, or action
+
+### Monitoring fallbacks
+
+Go to **Transactions** in the portal and filter by fallback events. High fallback frequency on a specific topic signals that you should add content to your knowledge base or configure a new action.
+
+## Reference
+
+| Concept | Description |
+|---|---|
+| Fallback flow | A configured response to an out-of-scope customer request |
+| Priority stack | The ordered list of fallback flows — first match executes |
+| Connect agent | Handoff to a human agent via your support platform |
+| Background action | A silent action triggered alongside the customer response |
+| Reference ID | Generated for every fallback event — format `#PRL-XXXXXXXX` |
