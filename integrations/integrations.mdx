@@ -1,0 +1,76 @@
+---
+title: Integrations
+description: How Parlel connects to your existing backend systems — CRM, billing, support — without requiring any changes to those systems.
+---
+
+## Overview
+
+Parlel connects to your existing backend systems to read customer data and execute actions. Your systems don't change — Parlel connects to them as they are, via their existing APIs.
+
+Integrations are the foundation for both customer lookup — loading account data into the session at authentication — and action execution — making changes to customer records in real time.
+
+## How it works
+
+Each integration is a configured connection to a backend system, authenticated via API credentials stored encrypted in Parlel. Once connected, the integration is available to actions as an API target and to the authentication layer for customer lookup.
+
+Credentials are encrypted at rest using AES-256-GCM. Parlel never exposes raw credentials — they are used server-side only.
+
+## Supported integrations
+
+### Pre-built connectors
+
+| System | Use cases |
+|---|---|
+| HubSpot | Customer lookup, contact updates, deal management |
+| Salesforce | Customer lookup, opportunity management, case creation |
+| Stripe | Subscription management, payment method updates |
+| Zendesk | Ticket creation, conversation handoff, agent escalation |
+
+### Custom integrations
+
+Any system with a REST API can be connected via Parlel's generic REST connector. Define the base URL, authentication method, and headers — then reference the integration in your action flows.
+
+## Relationships
+
+<CardGroup cols={2}>
+  <Card title="Actions" icon="bolt" href="/actions/actions">
+    Actions execute via integrations. Each action flow maps one or more API calls to a connected integration.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication/authentication">
+    Customer lookup at Tier 1 authentication uses a connected integration to find the customer in your CRM.
+  </Card>
+  <Card title="Fallback Flows" icon="life-ring" href="/fallbacks/fallback-flows">
+    Connect agent fallbacks and webhook background actions require a configured integration.
+  </Card>
+</CardGroup>
+
+## Configuration
+
+### Adding an integration
+
+Go to **Settings → Integrations** in the portal → **Add integration**. Select your system from the pre-built connectors or choose Custom REST.
+
+For pre-built connectors, provide your API credentials. Parlel validates the connection before saving.
+
+For custom REST integrations, define:
+- **Base URL** — the root URL for API calls
+- **Authentication** — API key, Bearer token, or OAuth
+- **Default headers** — any headers required on every request
+
+### Credential security
+
+API credentials are encrypted immediately on entry using AES-256-GCM. Raw credentials are never stored or logged. To rotate credentials, update them in the portal — existing action flows will use the new credentials automatically.
+
+### Testing a connection
+
+After adding an integration, use the connection test in the portal to verify Parlel can reach your system before configuring actions against it.
+
+## Reference
+
+| Concept | Description |
+|---|---|
+| Integration | A configured, authenticated connection to a backend system |
+| Pre-built connector | A Parlel-managed integration with built-in field mapping |
+| Custom REST | A generic connector for any REST API |
+| Credential encryption | AES-256-GCM encryption of all stored API credentials |
+| Customer lookup | The integration call made at Tier 1 authentication to load customer data |
