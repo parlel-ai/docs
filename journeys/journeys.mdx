@@ -1,0 +1,85 @@
+---
+title: Journeys
+description: How Parlel lets you structure and control customer conversations — guiding customers through defined paths with guardrails at every stage.
+---
+
+## Overview
+
+Journeys give companies control over how conversations flow. Without journeys, the AI responds to whatever the customer asks in whatever order they ask it. With journeys, you define structured paths — an upgrade flow, a cancellation retention flow, an onboarding sequence — and the AI guides the customer through them.
+
+Journeys don't replace the AI's natural conversation ability. They set the boundaries within which the AI operates at a given point in the conversation.
+
+## How it works
+
+A journey is a set of stages. Each stage defines a capability envelope — what the AI can discuss, which actions are available, what commercial rules can fire, and what must happen before the stage is considered complete.
+
+Stages are not strictly sequential. They are conditional capability sets — the AI moves between stages based on what has happened in the conversation, not a fixed step order. This makes journeys flexible enough to handle real conversations, which rarely follow a script.
+
+### Journey activation
+
+A journey activates when the AI determines that the current conversation matches the journey's configured intent. You define the intent in plain language — for example: "Customer wants to cancel their subscription." The AI uses this description to decide when to activate the journey.
+
+Once active, the journey's stage configuration governs the conversation until the journey completes or the customer exits.
+
+### Stage guardrails
+
+Each stage has a guardrail — a condition that must be satisfied before the conversation can progress. Guardrails ensure customers can't skip steps or execute sensitive actions before the right conditions are met.
+
+| Guardrail | Description |
+|---|---|
+| None | No condition — stage is immediately accessible |
+| Auth tier | Customer must reach a specified authentication tier |
+| Explicit confirmation | Customer must explicitly confirm before progressing |
+| Action completed | A specific action must have executed successfully |
+| Stage completed | A previous stage must be complete |
+| Journey completed | The full journey must have completed |
+
+## Relationships
+
+<CardGroup cols={2}>
+  <Card title="Actions" icon="bolt" href="/actions/actions">
+    Journey-class actions are only available within journey stages that explicitly permit them. The journey controls when and how actions can fire.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication/authentication">
+    Auth tier guardrails use the authentication system directly. A stage requiring Tier 2 will prompt the customer to verify if they haven't already.
+  </Card>
+  <Card title="Commercial Rules" icon="tag" href="/commercial/commercial-rules">
+    Each journey stage defines which commercial rules can fire within that stage — ensuring offers appear only at the right moment.
+  </Card>
+  <Card title="Fallback Flows" icon="life-ring" href="/fallbacks/fallback-flows">
+    If a customer asks something outside the journey's scope, fallback flows define what happens next.
+  </Card>
+</CardGroup>
+
+## Configuration
+
+### Creating a journey
+
+Go to **Journeys** in the portal → **New journey**. Define:
+
+1. **Name** — internal reference
+2. **Trigger intent** — plain language description of when this journey should activate
+3. **Example phrases** — calibration examples to help the AI recognise the intent accurately
+4. **Stages** — the capability sets that make up the journey
+
+### Configuring a stage
+
+For each stage, define:
+- **Guardrail** — what must be true before this stage is active
+- **Permitted actions** — which journey-class actions are available
+- **Commercial rule permissions** — which campaigns and mandates can fire
+- **Completion condition** — what marks this stage as done
+
+### Testing a journey
+
+Run through the journey in the Parlel native chat interface. Verify that the AI activates the journey at the right moment, guardrails block progression correctly, and actions fire only when permitted.
+
+## Reference
+
+| Concept | Description |
+|---|---|
+| Journey | A structured conversation path with defined stages |
+| Stage | A capability envelope within a journey |
+| Guardrail | A condition that must be satisfied before a stage is accessible |
+| Trigger intent | Plain language description of when to activate this journey |
+| Journey-class action | An action that only executes within an active journey stage |
