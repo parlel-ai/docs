@@ -4,6 +4,7 @@ description: How Parlel lets you structure and control customer conversations �
 ---
 
 import CapabilityModel from '/components/CapabilityModel'
+import JourneyStageModel from '/components/JourneyStageModel'
 
 ## Overview
 
@@ -24,6 +25,8 @@ Stages are not strictly sequential. They are conditional capability sets — the
 A journey activates when the AI determines that the current conversation matches the journey's configured intent. You define the intent in plain language — for example: "Customer wants to cancel their subscription." The AI uses this description to decide when to activate the journey.
 
 Once active, the journey's stage configuration governs the conversation until the journey completes or the customer exits.
+
+<JourneyStageModel />
 
 ### Stage guardrails
 
