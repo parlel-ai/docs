@@ -3,6 +3,8 @@ title: Journeys
 description: How Parlel lets you structure and control customer conversations — guiding customers through defined paths with guardrails at every stage.
 ---
 
+import CapabilityModel from '/components/CapabilityModel'
+
 ## Overview
 
 Journeys give companies control over how conversations flow. Without journeys, the AI responds to whatever the customer asks in whatever order they ask it. With journeys, you define structured paths — an upgrade flow, a cancellation retention flow, an onboarding sequence — and the AI guides the customer through them.
@@ -14,6 +16,8 @@ Journeys don't replace the AI's natural conversation ability. They set the bound
 A journey is a set of stages. Each stage defines a capability envelope — what the AI can discuss, which actions are available, what commercial rules can fire, and what must happen before the stage is considered complete.
 
 Stages are not strictly sequential. They are conditional capability sets — the AI moves between stages based on what has happened in the conversation, not a fixed step order. This makes journeys flexible enough to handle real conversations, which rarely follow a script.
+
+<CapabilityModel />
 
 ### Journey activation
 
