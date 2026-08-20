@@ -72,6 +72,7 @@
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
+    "width": 80
   },
   "navbar": {
     "links": []
