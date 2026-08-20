@@ -3,6 +3,8 @@ title: Authentication
 description: How Parlel verifies customer identity progressively — with friction that scales precisely to the sensitivity of what's being asked.
 ---
 
+import AuthenticationTiers from '/components/AuthenticationTiers'
+
 ## Overview
 
 Parlel uses a progressive authentication model. Customers start anonymous and gain verified identity as the conversation requires it. Friction scales to sensitivity — a customer asking a general question isn't asked to verify their identity; a customer requesting a subscription change is.
@@ -23,6 +25,8 @@ The customer's tier persists across the conversation. Once a customer reaches Ti
 | Tier 1 | Identified | Customer has provided their email. Parlel has looked them up in your CRM and loaded their account data. |
 | Tier 2 | OTP verified | Customer has verified identity via a one-time code sent to their email. Sensitive actions are now available. |
 | Tier 3 | Strongly verified | Reserved for future use — BankID and equivalent strong verification. |
+
+<AuthenticationTiers />
 
 ## The verification flow
 
