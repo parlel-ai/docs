@@ -1,10 +1,10 @@
 ---
 title: Journeys
-description: How Parlel lets you structure and control customer conversations — guiding customers through defined paths with guardrails at every stage.
+description: How Parlel lets you structure and control customer conversations.
 ---
 
-import CapabilityModel from '/components/CapabilityModel'
-import JourneyStageModel from '/components/JourneyStageModel'
+import { CapabilityModel } from '/snippets/CapabilityModel'
+import { JourneyStageModel } from '/snippets/JourneyStageModel'
 
 ## Overview
 
@@ -16,13 +16,13 @@ Journeys don't replace the AI's natural conversation ability. They set the bound
 
 A journey is a set of stages. Each stage defines a capability envelope — what the AI can discuss, which actions are available, what commercial rules can fire, and what must happen before the stage is considered complete.
 
-Stages are not strictly sequential. They are conditional capability sets — the AI moves between stages based on what has happened in the conversation, not a fixed step order. This makes journeys flexible enough to handle real conversations, which rarely follow a script.
+Stages are not strictly sequential. They are conditional capability sets — the AI moves between stages based on what has happened in the conversation, not a fixed step order.
 
 <CapabilityModel />
 
 ### Journey activation
 
-A journey activates when the AI determines that the current conversation matches the journey's configured intent. You define the intent in plain language — for example: "Customer wants to cancel their subscription." The AI uses this description to decide when to activate the journey.
+A journey activates when the AI determines that the current conversation matches the journey's configured intent. You define the intent in plain language — for example: "Customer wants to cancel their subscription."
 
 Once active, the journey's stage configuration governs the conversation until the journey completes or the customer exits.
 
@@ -30,7 +30,7 @@ Once active, the journey's stage configuration governs the conversation until th
 
 ### Stage guardrails
 
-Each stage has a guardrail — a condition that must be satisfied before the conversation can progress. Guardrails ensure customers can't skip steps or execute sensitive actions before the right conditions are met.
+Each stage has a guardrail — a condition that must be satisfied before the conversation can progress.
 
 | Guardrail | Description |
 |---|---|
@@ -45,13 +45,13 @@ Each stage has a guardrail — a condition that must be satisfied before the con
 
 <CardGroup cols={2}>
   <Card title="Actions" icon="bolt" href="/actions/actions">
-    Journey-class actions are only available within journey stages that explicitly permit them. The journey controls when and how actions can fire.
+    Journey-class actions are only available within journey stages that explicitly permit them.
   </Card>
   <Card title="Authentication" icon="shield" href="/authentication/authentication">
-    Auth tier guardrails use the authentication system directly. A stage requiring Tier 2 will prompt the customer to verify if they haven't already.
+    Auth tier guardrails use the authentication system directly.
   </Card>
   <Card title="Commercial Rules" icon="tag" href="/commercial/commercial-rules">
-    Each journey stage defines which commercial rules can fire within that stage — ensuring offers appear only at the right moment.
+    Each journey stage defines which commercial rules can fire within that stage.
   </Card>
   <Card title="Fallback Flows" icon="life-ring" href="/fallbacks/fallback-flows">
     If a customer asks something outside the journey's scope, fallback flows define what happens next.
@@ -76,10 +76,6 @@ For each stage, define:
 - **Permitted actions** — which journey-class actions are available
 - **Commercial rule permissions** — which campaigns and mandates can fire
 - **Completion condition** — what marks this stage as done
-
-### Testing a journey
-
-Run through the journey in the Parlel native chat interface. Verify that the AI activates the journey at the right moment, guardrails block progression correctly, and actions fire only when permitted.
 
 ## Reference
 
