@@ -76,6 +76,7 @@ export const ArchitectureOverview = () => (
       <text className="lx au" x="358" y="232" textAnchor="middle">Campaigns &amp; mandates</text>
       <text className="lx au" x="358" y="250" textAnchor="middle">Stage-gated progression</text>
       <text className="lx au" x="358" y="268" textAnchor="middle">Fallback &amp; escalation rules</text>
+      <text className="lx au" x="358" y="286" textAnchor="middle">Transaction (shopping) cart</text>
       {/* Authentication */}
       <rect x="466" y="140" width="182" height="172" rx="8" className="cf cs" strokeWidth="0.5"/>
       <text className="lp ct" x="557" y="166" textAnchor="middle" dominantBaseline="central">Authentication layer</text>
