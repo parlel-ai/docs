@@ -4,6 +4,7 @@ description: An architectural overview of the Parlel platform — the layers, ho
 ---
 
 import ArchitectureOverview from '/components/ArchitectureOverview'
+import ConversationFlow from '/components/ConversationFlow'
 
 ## The big picture
 
@@ -39,6 +40,8 @@ Everything above is configured through the Parlel portal at [parlel.ai/portal](h
 ## What happens when a customer sends a message
 
 Every message goes through the same sequence:
+
+<ConversationFlow />
 
 <Steps>
   <Step title="Session resolved">
