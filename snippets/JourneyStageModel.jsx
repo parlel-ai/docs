@@ -1,4 +1,5 @@
 export const JourneyStageModel = () => (
+  <div style={{ padding: "0 24px" }}>
   <svg width="100%" viewBox="0 0 680 780" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parlel journey stage model" style={{display:"block"}}>
     <title>Parlel journey stage model — Change journey</title>
     <style>{`
@@ -104,4 +105,5 @@ export const JourneyStageModel = () => (
       <text className="ls gu" x="42" y="711" dominantBaseline="central">Change executed and confirmed</text>
     </g>
   </svg>
+  </div>
 )

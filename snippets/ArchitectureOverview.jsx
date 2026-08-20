@@ -1,4 +1,5 @@
 export const ArchitectureOverview = () => (
+  <div style={{ padding: "0 24px" }}>
   <svg
     width="100%"
     viewBox="0 0 680 680"
@@ -69,14 +70,14 @@ export const ArchitectureOverview = () => (
       <text className="lx tpu" x="156" y="250" textAnchor="middle">Confidence-gated responses</text>
       <text className="lx tpu" x="156" y="268" textAnchor="middle">Clean escalation on uncertainty</text>
       {/* Commercial */}
-      <rect x="264" y="140" width="188" height="172" rx="8" className="af as" strokeWidth="0.5"/>
+      <rect x="264" y="140" width="188" height="190" rx="8" className="af as" strokeWidth="0.5"/>
       <text className="lp at" x="358" y="166" textAnchor="middle" dominantBaseline="central">Commercial layer</text>
       <text className="lx au" x="358" y="184" textAnchor="middle">Journeys, offers, control</text>
-      <text className="lx au" x="358" y="214" textAnchor="middle">Customer journey config</text>
-      <text className="lx au" x="358" y="232" textAnchor="middle">Campaigns &amp; mandates</text>
-      <text className="lx au" x="358" y="250" textAnchor="middle">Stage-gated progression</text>
-      <text className="lx au" x="358" y="268" textAnchor="middle">Fallback &amp; escalation rules</text>
-      <text className="lx au" x="358" y="286" textAnchor="middle">Transaction (shopping) cart</text>
+      <text className="lx au" x="358" y="210" textAnchor="middle">Customer journey config</text>
+      <text className="lx au" x="358" y="226" textAnchor="middle">Campaigns &amp; mandates</text>
+      <text className="lx au" x="358" y="242" textAnchor="middle">Stage-gated progression</text>
+      <text className="lx au" x="358" y="258" textAnchor="middle">Fallback &amp; escalation rules</text>
+      <text className="lx au" x="358" y="274" textAnchor="middle">Transaction basket</text>
       {/* Authentication */}
       <rect x="466" y="140" width="182" height="172" rx="8" className="cf cs" strokeWidth="0.5"/>
       <text className="lp ct" x="557" y="166" textAnchor="middle" dominantBaseline="central">Authentication layer</text>
@@ -112,4 +113,5 @@ export const ArchitectureOverview = () => (
       <text className="ls gt" x="354" y="652" textAnchor="middle" dominantBaseline="central">Company back-end — your existing systems, unchanged</text>
     </g>
   </svg>
+  </div>
 )

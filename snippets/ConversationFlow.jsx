@@ -1,4 +1,5 @@
 export const ConversationFlow = () => (
+  <div style={{ padding: "0 24px" }}>
   <svg
     width="100%"
     viewBox="0 0 680 680"
@@ -109,4 +110,5 @@ export const ConversationFlow = () => (
       <text className="ls gu" x="340" y="622" textAnchor="middle" dominantBaseline="central">Inside the customer's AI tool — unchanged</text>
     </g>
   </svg>
+  </div>
 )
